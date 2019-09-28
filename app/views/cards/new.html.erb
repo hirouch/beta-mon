@@ -1,0 +1,47 @@
+    <h3>Create Card</h3>
+    <%= form_for @card,:url => {:action => :create} do |f| %>
+        <%# <div class="form-group">
+            <%= f.label :デッキ名 %>
+            <%# <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "デッキ名" %>
+        <%# </div> %>
+        <div class="form-group">
+            <label class="control-label">デッキ選択</label>
+            <%= f.collection_select :deck_id, @deck, :id, :name, {prompt: "---"}, class: "aaa", id: "aaa", name: "card[deck_id]" %>
+            <%# <select class="form-control" name="deck">
+                <option></option>
+                <option value="1">テスト</option>
+                <option value="2">苦手問題</option>
+                <option value="3">学習</option>
+                <option value="4">問題検索</option>
+            </select> %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, id:"form-title" , class:"form-control",placeholder: "問題" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_field :body, id:"form-content" , class:"form-control",placeholder: "答え" %>
+        </div>
+
+
+        <%= submit_tag "Create" ,class:"btn btn-primary"%>
+    <% end %>
+
+    <%= form_tag import_cards_path, multipart: true, class: 'mb-5' do %>
+        <select name="deck_id">
+        <% @deck.each do |deck|%>
+            <option value=<%= deck.id%>><%= deck.name%></option>
+        <% end %>
+        </select>
+        <%= file_field_tag :file %>
+        <%= submit_tag "インポート", class: 'btn btn-primary' %>
+    <% end%>
+
+
+
+
+
+    <%# <textarea cols="30" name="title" placeholder="title" rows="1"></textarea> %>
+    <%# <textarea cols="30" name="body" placeholder="body" rows="1"></textarea> %>

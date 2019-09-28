@@ -1,0 +1,40 @@
+<%= form_for(@test, url: cards_index_path(@test), html: {method: "get"}) do |f| %>
+    
+
+    <div class="form-group">
+      <label class="control-label">デッキ選択</label>
+      <select name="deck_id">
+        <% @deck.each do |deck|%>
+            <option value=<%= deck.id%>><%= deck.name%></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">モード選択</label>
+      <select class="form-control" name="mode">
+        <option></option>
+        <option value="1">テスト</option>
+        <option value="2">苦手問題</option>
+        <option value="3">学習</option>
+      </select>
+    </div>
+
+
+        <label for="all"><input type="checkbox" name="allChecked" id="all" checked="checked">全選択</label>
+        <div id="boxes">
+          <%# <label id = ”all”><input type="checkbox" name="0">全ジャンル</label> %>
+          <label class=”list”><input type="checkbox" name="chk[]" value=1 checked="checked">1.アニメ＆ゲーム</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=2 checked="checked">2.スポーツ</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=3 checked="checked">3.芸能</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=4 checked="checked">4.ライフスタイル</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=5 checked="checked">5.社会</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=6 checked="checked">6.文系学問</label>
+          <label class=”list”><input type="checkbox" name="chk[]" value=7 checked="checked">7.理系学問</label>
+        </div>
+
+    <%# <input type="submit" value="投稿"> %>
+
+
+    <%= submit_tag "start" ,class:"btn btn-primary"%>
+<% end %>

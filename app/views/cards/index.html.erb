@@ -1,0 +1,41 @@
+    <% @cards.each.with_index do |card,i| %>
+      <div class="col-sm-12">
+            <div class="panel panel-info	">
+
+              <div class="panel-heading">
+                <h4>
+                  <a data-toggle="collapse" href="#<%= i %>"><%= card.question %></a>
+                </h4>
+              </div>
+              
+              <div id="<%= i %>" class="panel-collapse collapse">
+
+                <div class="panel-body">
+                  <%= card.answer %>
+                </div>
+
+                <div class="panel-footer">
+                  <%= link_to cards_rankChange_path(card.id, rank: "max"), remote: true do %>
+                    <span class="buttons-left glyphicon glyphicon-thumbs-up"></span>
+                  <% end %>
+                  <%= link_to cards_rankChange_path(card.id, rank: "up"), remote: true do %>
+                    <span class="buttons-left glyphicon glyphicon-ok"></span>
+                  <% end %>
+                  <%= link_to cards_rankChange_path(card.id, rank: "down"), remote: true do %>
+                    <span class="buttons-left glyphicon glyphicon-remove"></span>
+                  <% end %>
+                  <% if user_signed_in? && current_user.id == card.user_id %>
+                    <div class="buttons">
+                      <a href="/cards/<%=card.id%>/edit"><span class="glyphicon glyphicon-star"></span></a>
+                      <a href="/cards/<%=card.id%>/edit"><span class="glyphicon glyphicon-edit"></span></a>
+                      <a href="/cards/<%=card.id%>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                  <% end %>
+                </div>
+                
+              </div>
+            </div>
+        </div>
+    <% end %>
+    <%= link_to 'エクスポート', cards_index_path(format: :csv), class: 'btn btn-primary mb-5' %>
+
