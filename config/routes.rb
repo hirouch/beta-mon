@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
+
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :deck
+  resources :decks
   # get 'deck/new'
   # get 'deck/create', to: "deck/create"
   # get 'deck/index'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   get "/" => "home#top"
   get "about" => "home#about"
   # get 'home/top'
-  get "/cards/test", to: "cards#test"
+  get "/cards/set", to: "cards#set"
   get "/cards/search", to: "cards#search"
   devise_for :users
   get 'cards/index'

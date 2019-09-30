@@ -5,5 +5,5 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
   has_many :decks
-  has_many :posts
+  has_many :cards
 end
