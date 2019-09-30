@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "navbar";
+// @import "style";
+@import "footer";
+
+
+.buttons-left{
+    color:#e0a957;
+    margin-right:35px;
+}
+
+.buttons{
+    color:#e0a957;
+    margin-left:35px;
+}
+
+.buttons{
+    color:#e0a957;
+    text-align:right;
+    margin-top:-35px;
+}
+
+li{
+    list-style:none;
+}
+
+a {
+  text-decoration: none ;
+}
+
+.navbar-header a{
+    font-family: 'Turret Road', cursive;
+    font-size: 200%;
+    text-shadow: 1px 1px 0 #000,
+                -1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+}
