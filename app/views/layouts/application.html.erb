@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BetaMon</title>
+    <title>beta-mon</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Turret+Road:800&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">beta-mon</a>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <%# <li class="active"><a href="#">about<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="#">about<span class="sr-only">(current)</span></a></li> %>
+          <li class="active"><%= link_to "about", about_path, method: :get %></li>
+          <form action="/posts/search" class="navbar-form navbar-left">
+            <div class="form-group">
+              <input name = "keyword" type="text" class="form-control" placeholder="キーワード検索">
+            </div>
+            <button type="submit" class="btn btn-default">検索</button>
+          </form>
+        </ul>
+          <% if user_signed_in? %>
+            <div class="user_nav grid-6">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <%# <li><%= link_to "テストモード", posts/:id/test, class: 'get' %>
+                  <li><a href="/posts/<%= current_user.id %>/test">学習モード</a></li>
+                  <li><a href="/posts/test">テストモード</a></li>
+                  <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+                  <li><a class="post" href="/deck/new">カードを追加する</a></li>
+                  <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <%# <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li> %>
+                      <li><a href="/users/show">マイページ</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+          <% else %>
+            <div class="grid-6">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </div>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
   </body>
 </html>
