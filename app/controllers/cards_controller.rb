@@ -45,7 +45,7 @@ class CardsController < ApplicationController
 
   def create
     Card.create(question: card_params[:question], answer: card_params[:answer], user_id: current_user.id, deck_id: card_params[:deck_id])
-    @quote = Quote.where( 'id >= ?', rand(Quote.first.id..Quote.last.id) ).first
+    # @quote = Quote.where( 'id >= ?', rand(Quote.first.id..Quote.last.id) ).first
     binding.pry
   end
 
