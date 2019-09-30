@@ -1,10 +1,10 @@
 class Deck < ApplicationRecord
   belongs_to :user
-  has_many :posts
+  has_many :cards
 
   def answer_valuenow
-    return 0 if posts.none?
+    return 0 if cards.none?
 
-    (posts.where(rank: 10).count.to_f / posts.count * 100).round
+    (cards.where(rank: 10).count.to_f / cards.count * 100).round
   end
 end

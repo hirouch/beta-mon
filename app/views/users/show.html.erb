@@ -1,0 +1,12 @@
+<h3><%= current_user.nickname %>さんのデッキ別達成率</h3>
+<div class="contents row">
+  <% @decks.each do |deck| %>
+    <p><%= deck.name %></p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active answer_progress" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100" >
+        <%= deck.answer_valuenow %>%
+      </div>
+      <span>あなたの進捗は<%= deck.answer_valuenow %>パーセントです。</span>
+    </div>
+  <% end %>
+</div>
