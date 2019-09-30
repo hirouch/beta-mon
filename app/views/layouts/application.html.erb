@@ -43,9 +43,20 @@
                   
                   <%# <li><%= link_to "テストモード", posts/:id/test, class: 'get' %>
                   <li><a href="/posts/<%= current_user.id %>/test">学習モード</a></li>
-                  <li><a href="/posts/test">テストモード</a></li>
+                  <li><a href="/cards/set">学習する</a></li>
                   <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
-                  <li><a class="post" href="/deck/new">カードを追加する</a></li>
+
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">カードを追加する<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <%# <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li> %>
+                      <li><a class="post" href="/decks/new">新規デッキ</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a class="post" href="/cards/new">既存デッキ</a></li>
+                    </ul>
+                  </li>
+
                   <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %><span class="caret"></span></a>
                     <ul class="dropdown-menu">
