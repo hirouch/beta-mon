@@ -3,6 +3,7 @@ class CardsController < ApplicationController
 
   def index
     # binding.pry
+    return @cards = Card.ransack(title_or_body_cont: params[:keyword]).result.order("created_at DESC").page(params[:page]).per(10) if params[:keyword]
     # @posts = Post.where(params["genres"])
     genre_array = []
     params[:chk].each do | di1,di2 |
