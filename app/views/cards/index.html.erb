@@ -26,7 +26,6 @@
                   <% end %>
                   <% if user_signed_in? && current_user.id == card.user_id %>
                     <div class="buttons">
-                      <a href="/cards/<%=card.id%>/edit"><span class="glyphicon glyphicon-star"></span></a>
                       <a href="/cards/<%=card.id%>/edit"><span class="glyphicon glyphicon-edit"></span></a>
                       <a href="/cards/<%=card.id%>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
@@ -37,5 +36,6 @@
             </div>
         </div>
     <% end %>
-    <%= link_to 'エクスポート', cards_index_path(format: :csv), class: 'btn btn-primary mb-5' %>
+    <%# csvエクスポート一旦保留 %>
+    <%# <%= link_to 'エクスポート', cards_index_path(format: :csv), class: 'btn btn-primary mb-5' %> 
 

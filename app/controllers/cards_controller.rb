@@ -3,16 +3,18 @@ class CardsController < ApplicationController
 
   def index
     # binding.pry
-    return @cards = Card.ransack(title_or_body_cont: params[:keyword]).result.order("created_at DESC").page(params[:page]).per(10) if params[:keyword]
+    return @cards = Card.ransack(question_or_answer_cont: params[:keyword]).result.order("created_at DESC") if params[:keyword]
     # @posts = Post.where(params["genres"])
-    genre_array = []
-    params[:chk].each do | di1,di2 |
-      # チェックボックスにチェックがついている場合
-      # if di2 == "1"
-        genre_array << di1
-        # DBのtitleカラムにタイトルを格納し保存
-        # @get_game.save
-      # end
+    if params[:chk]
+      genre_array = []
+      params[:chk].each do | di1,di2 |
+        # チェックボックスにチェックがついている場合
+        # if di2 == "1"
+          genre_array << di1
+          # DBのtitleカラムにタイトルを格納し保存
+          # @get_game.save
+        # end
+      end
     end
 
     
