@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :decks
   has_many :cards
+
+  validates :nickname, presence: true, length: { maximum: 6 }
+
 end

@@ -40,13 +40,10 @@
           <% if user_signed_in? %>
             <div class="user_nav grid-6">
                 <ul class="nav navbar-nav navbar-right">
-                  
                   <li><a href="/cards/set">学習する</a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">カードを追加する<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <%# <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li> %>
                       <li><a class="post" href="/decks/new">新規デッキ</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a class="post" href="/cards/new">既存デッキ</a></li>
@@ -56,8 +53,6 @@
                   <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.nickname %><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <%# <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li> %>
                       <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
                       <li role="separator" class="divider"></li>
                       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -66,9 +61,11 @@
                 </ul>
             </div>
           <% else %>
-            <div class="grid-6">
-              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            <div class="user_nav grid-6">
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+                <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+              </ul>
             </div>
           <% end %>
         </ul>
