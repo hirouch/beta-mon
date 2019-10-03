@@ -18,7 +18,7 @@
   .navbar-default .navbar-nav>.active>a:focus,
   .navbar-default .navbar-nav>.active>a:hover {
   color: #26534c;
-  background-color: #c3ede7;
+  background-color: #9fe5fa;
   }
   /* navbar ドロップダウン(親)のカラー */
   .navbar-default .navbar-nav>.open>a,
@@ -92,7 +92,7 @@
   }
   /* navbar Brandのカラー */
   .navbar-default .navbar-brand {
-  color: #f6f87e;
+  color: #AEB447;
   }
   .navbar-default .navbar-brand:focus,
   .navbar-default .navbar-brand:hover {
