@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
 
-Things you may want to cover:
+- 自分で問題を作れる単語帳アプリ
 
-* Ruby version
+## アプリケーションの機能一覧
 
-* System dependencies
+- ユーザー管理
+  - 新規登録／ログイン／ログアウト／デッキの達成率表示
+- デッキ情報
+  - 一覧表示／詳細表示／新規登録
+- カード情報
+  - 一覧表示／新規登録／編集／削除機能／検索機能
 
-* Configuration
+#### 特に工夫した点
 
-* Database creation
+- マイページにてデッキの達成率がプログレスバーで表示される
+- カードをCSVで登録できる
+- 問題と答えからキーワードで検索できる
+- 問題の出題形式を変更できる(苦手問題のみやジャンル別、等)
 
-* Database initialization
+## アプリケーション内で使用している技術一覧
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| 種別             | 名称                       |
+| ---------------- | -------------------------- |
+| 開発言語         | Ruby(ver 2.5.1)            |
+| フレームワーク   | Ruby on Rails(ver 5.0.7.2) |
+| マークアップ     | HTML,CSS       |
+| フロントエンド   | JavaScript(jQuery)         |
+| DB               | MySQL                      |
+| 本番環境         | AWS EC2                    |
+| 自動デプロイ     | capistrano                 |
+| ユーザー管理     | devise(Gem)                |
+| 検索機能     | ransack(Gem)                |
