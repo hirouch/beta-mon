@@ -5,3 +5,13 @@
 .glyphicon {
   font-size: 30px;
 }
+
+.form-group2 {
+  // float: left;   /* 回り込み指定 */
+  padding-right: 100px;
+}
+
+.add-card-type {
+  justify-content: space-between;
+  display: flex;
+}
